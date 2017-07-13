@@ -1,0 +1,50 @@
+﻿@model IEnumerable<WebApplication1.Models.Schedule>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Container List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <p>Departure: </p>
+        </th>
+        <th>
+            <p>Destination: </p>
+        </th>
+        <th>
+            <p>Weight: </p>
+        </th>
+        <th>
+            <p>Delivery Date: </p>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.departure)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.destination)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.weight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.deliver_date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
